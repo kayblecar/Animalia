@@ -12,3 +12,7 @@ int Animal::Age(int curYear)
 	//curYear - birthYear == age
 	return curYear - birthYear;
 }
+
+void Human :: introduce() {
+	cout << "Hello, my name is " + name + ". ";
+}

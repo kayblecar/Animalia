@@ -1,5 +1,8 @@
 #ifndef ANIMALIA_H
 #define ANIMALIA_H
+#include <string>
+using namespace std;
+
 
 /*
 The classes Animal and Mammal have already been made for you by another team. Your mission, should you choose to
@@ -20,6 +23,8 @@ Kudos, and possibly more, for entertaining Matt.
 
 enum Sex {MALE, FEMALE, HERM};
 enum HairType {BALD, NORMAL, EXTREME};
+enum HoardType {GOLD, PRINCESSES, TOASTERS};
+enum ElementType {FIRE, WATER, ICE};
 
 class Animal
 {
@@ -41,4 +46,22 @@ public:
 	int Speek();
 };
 
-#endif
+class Dragon : public Animal
+{
+private:
+	bool canFly;
+	HoardType hoard;
+	ElementType breath;
+public:
+	Dragon(Sex s, int year) : Animal(s, year), canFly(true), hoard(PRINCESSES), breath(FIRE) {} //default is princess-stealing flying fire-breathing dragon
+	Dragon(Sex s, int year, bool flight, HoardType h, ElementType e) : Animal(s, year), canFly(flight), hoard(h), breath(e) {}
+};
+
+class Human : public Mammal
+{
+private:
+	string name;
+public:
+	Human(Sex s, int year) : Mammal(s, year, BALD) {}//humans are pretty much bald, usually
+	string introduce();
+};
